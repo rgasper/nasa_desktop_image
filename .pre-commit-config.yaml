@@ -1,0 +1,39 @@
+
+repos:
+-   repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+    -   id: black
+        # args: [--line-length, '120']
+-   repo: https://github.com/timothycrosley/isort
+    rev: 5.10.1
+    hooks:
+    -   id: isort
+        language_version: python3
+        # args: [
+        #         --line-width, "120",
+        #         --multi-line, "3",
+        #         "--trailing-comma",
+        #         "--use-parentheses",
+        #         # "--force-grid-wrap",
+        #     ]
+-   repo: https://github.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+    -   id: flake8
+        language_version: python3
+        additional_dependencies:
+            - flake8-bugbear
+            - flake8-comprehensions
+            - flake8-debugger
+            - flake8-string-format
+        # args: [--max-line-length=120]
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.2.0
+    hooks:
+    -   id: check-executables-have-shebangs
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: detect-private-key
+    -   id: name-tests-test
