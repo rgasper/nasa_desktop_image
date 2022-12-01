@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "nasa-desktop-image"
+version = "0.1.0"
+description = "get images from nasa and set them as your desktop"
+authors = ["Raymond Gasper <14928724+rgasper@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "nasa_desktop_image"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+python-nasa = "^0.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
