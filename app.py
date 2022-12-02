@@ -15,6 +15,10 @@ cli = typer.Typer()
 
 @cli.command()
 def desktop_apod(debug: bool = False, random: bool = False):
+    """
+    Sets your desktop background to the Astronomy Picture of the day
+    If `random` is `True`, use a random astronomy picture instead.
+    """
     img_paths = download_apod(count=1 if random else None, debug=debug)
     set_desktop_backgrounds(img_paths[0])
 
