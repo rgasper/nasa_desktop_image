@@ -50,7 +50,7 @@ def download_apod(
             hdurls = [js["hdurl"] for js in response.json()]
         else:
             hdurls = [response.json()["hdurl"]]
-        return [download_to_apod_images_dir(url) for url in hdurls]
+        return [download_to_dir(url, apod_images_dir()) for url in hdurls]
     else:
         raise Exception(f"NASA APOD api failed. Check response for details. {response.content}")
 
@@ -62,10 +62,10 @@ def apod_images_dir():
     return dir
 
 
-def download_to_apod_images_dir(url: str) -> str:
+def download_to_dir(url: str, dir: str) -> str:
     # currently only works on UNIX oses
     image_file = os.path.basename(url)
-    img_path = os.path.join(apod_images_dir(), image_file)
+    img_path = os.path.join(dir, image_file)
     sh.wget(url)
     sh.mv(image_file, img_path)  # wget downloaded it to the current directory
     return img_path
