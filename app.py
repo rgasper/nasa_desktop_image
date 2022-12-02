@@ -63,6 +63,7 @@ def apod_images_dir():
 
 
 def wget_url_move_to_apod_images_dir(url: str) -> str:
+    # currently only works on UNIX oses
     image_file = os.path.basename(url)
     img_path = os.path.join(apod_images_dir(), image_file)
     sh.wget(url)
@@ -71,6 +72,7 @@ def wget_url_move_to_apod_images_dir(url: str) -> str:
 
 
 def set_desktop_backgrounds(img_path: str) -> None:
+    # currently only works on Mac OS
     sh.osascript("-e", f'tell application "System Events" to tell every desktop to set picture to "{img_path}"')
     return
 
