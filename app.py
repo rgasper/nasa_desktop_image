@@ -50,15 +50,18 @@ def download_apod(
             hdurls = [js["hdurl"] for js in response.json()]
         else:
             hdurls = [response.json()["hdurl"]]
-        return [download_to_dir(url, apod_images_dir()) for url in hdurls]
+        return [download_to_dir(url, apod_images_dir(noprint=True)) for url in hdurls]
     else:
         raise Exception(f"NASA APOD api failed. Check response for details. {response.content}")
 
 
-def apod_images_dir():
+@cli.command()
+def apod_images_dir(noprint: bool = False):
     # currently only works on Mac OS
     dir = os.path.join(os.getenv("HOME"), "Pictures", "APOD")
     Path(dir).mkdir(exist_ok=True)
+    if not noprint:
+        print(dir)
     return dir
 
 
