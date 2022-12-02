@@ -1,3 +1,3 @@
 # NASA Desktop Image
 
-Grab a random mission image from NASA website and make them your desktop
+Grab the astronomy picture of the day, or a random astronomy picture, from NASA and make it your desktop background
