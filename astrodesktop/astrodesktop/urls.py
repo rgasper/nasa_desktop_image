@@ -17,11 +17,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from pics.views import index as picsindex
+from pics.views import PictureListView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", picsindex, name="index"),
+    path("", PictureListView.as_view(), name="picture_list"),
     path("pics/", include("pics.urls")),
 ]
 if settings.DEBUG:
