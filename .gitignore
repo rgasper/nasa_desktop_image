@@ -5,10 +5,12 @@ nasa_api_key.txt
 #!! ERROR: docker is undefined. Use list command to see defined gitignore types !!#
 
 #!! ERROR: jupyter is undefined. Use list command to see defined gitignore types !!#
+astrodesktop/db.sqlite3
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
+**/__pycache__
 *.py[cod]
 *$py.class
 
@@ -196,3 +198,6 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/python,jupyter,docker,vim
 n
+
+astrodesktop/db.sqlite3
+astrodesktop/db.sqlite3
