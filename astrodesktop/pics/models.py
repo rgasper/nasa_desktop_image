@@ -18,7 +18,7 @@ class Picture(TimeStampedModel):
             Only will work in the save method
             """
             thumb = Image.open(img)
-            thumb.thumbnail((90, 90), Image.ANTIALIAS)
+            thumb.thumbnail((200, 200), Image.ANTIALIAS)
             dir = os.path.dirname(img_path)
             imgname, imgext = os.path.splitext(self.name)
             thumbname = f"{imgname}_thumb{imgext}"

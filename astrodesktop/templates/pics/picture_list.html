@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <ul>
+    <div class="your-grid">
         {% for picture in pictures %}
-            <img src="{{ picture.thumb.url }}" alt="{{ picture.name }}">
+            <div class="grid-element">
+              <img src="{{ picture.thumb.url }}" alt="{{ picture.name }}">
+            </div>
         {% endfor %}
-    </ul>
+    </div>
+    <style>
+        .your-grid
+        {
+          display: grid;
+          grid-template-columns: repeat(1fr, 4);
+          grid-gap: 8px;
+        }
+    <style>
 {% endblock %}
