@@ -6,6 +6,8 @@ nasa_api_key.txt
 
 #!! ERROR: jupyter is undefined. Use list command to see defined gitignore types !!#
 astrodesktop/db.sqlite3
+astrodesktop/media
+astrodesktop/static
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

@@ -55,7 +55,7 @@ ROOT_URLCONF = "astrodesktop.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -118,4 +118,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# Base url to serve media files
+MEDIA_URL = "/media/"
+
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+
+# Base url to serve static files
 STATIC_URL = "/static/"
+
+# Path where static is stored
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
