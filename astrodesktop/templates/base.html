@@ -6,27 +6,9 @@
 		{% tailwind_css %}
     <title>{% block title %}Astro Desktop Pictures{% endblock %}</title>
 </head>
-
-
-<nav class="navbar navbar-expand-md">
-	// <a class="navbar-brand" href="#">Logo</a>
-	<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="main-navigation">
-		<ul class="navbar-nav">
-			<li class="nav-item">
-				<a class="nav-link" href="/">Home</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/admin/">Admin</a>
-			</li>
-		</ul>
-	</div>
-</nav>
-
 <body>
-  <div id="content">
+	<h1 class="font-serif text-xl font-extrabold">Astro Desktop Pictures</h1>
+  <div class="container w-2/3" id="content">
       {% block picture-list %}{% endblock %}
   </div>
 </body>
