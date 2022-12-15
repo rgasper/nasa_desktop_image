@@ -20,6 +20,7 @@ from django.urls import include, path
 from pics.views import PictureListView
 
 urlpatterns = [
+    path("__reload__/", include("django_browser_reload.urls")),
     path("admin/", admin.site.urls),
     path("", PictureListView.as_view(), name="picture_list"),
     path("pics/", include("pics.urls")),

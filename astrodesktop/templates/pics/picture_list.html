@@ -1,19 +1,11 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <div class="your-grid">
-        {% for picture in pictures %}
-            <div class="grid-element">
-              <img src="{{ picture.thumb.url }}" alt="{{ picture.name }}">
-            </div>
-        {% endfor %}
+{% block picture-list %}
+  <div class="container mx-auto">
+    <div class="columns">
+      {% for picture in pictures %}
+          <img class="w-full" src="{{ picture.thumb.url }}" alt="{{ picture.name }}">
+      {% endfor %}
     </div>
-    <style>
-        .your-grid
-        {
-          display: grid;
-          grid-template-columns: repeat(1fr, 4);
-          grid-gap: 8px;
-        }
-    <style>
+  </div>
 {% endblock %}

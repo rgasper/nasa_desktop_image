@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_browser_reload",
+    "tailwind",
+    "theme",
     "pics",
 ]
+
+TAILWIND_APP_NAME = "theme"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -48,6 +53,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # should be after any other middleware that encodes a response
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "astrodesktop.urls"
@@ -129,3 +136,7 @@ STATIC_URL = "/static/"
 
 # Path where static is stored
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
