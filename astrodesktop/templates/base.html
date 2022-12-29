@@ -5,11 +5,28 @@
 <head>
 		{% tailwind_css %}
     <title>{% block title %}Astro Desktop Pictures{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+				src="https://unpkg.com/htmx.org@1.5.0"
+        integrity="sha384-oGA+prIp5Vchu6we2YkI51UtVzN9Jpx2Z7PnR1I78PnZlN8LkrCT4lqqqmDkyrvI"
+        crossorigin="anonymous"
+		>
+		</script>
 </head>
 <body>
-	<h1 class="font-serif text-xl font-extrabold">Astro Desktop Pictures</h1>
-  <div class="container w-2/3" id="content">
+	<div class="grid grid-cols-1 place-content-center font-serif text-xl font-extrabold text-center">Astro Pic of the Day</div>
+	<div hx-get="{% url 'pictureoftheday' %}" hx-trigger="load" hx-target="#picoftheday">
+		<div id="picoftheday">default</div>
+	</div>
+	<div class="grid grid-cols-1 place-content-center font-serif text-xl font-extrabold text-center">Current Collection</div>
+  <div class="grid grid-cols-1 place-content-center container w-2/3" id="content">
       {% block picture-list %}{% endblock %}
   </div>
+  <script>
+      document.body.addEventListener('htmx:configRequest', (event) => {
+      event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+      })
+  </script>
 </body>
 </html>

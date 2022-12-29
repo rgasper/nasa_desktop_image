@@ -3,11 +3,13 @@
 {% block picture-list %}
   <div class="columns-3xs">
     {% for picture in pictures %}
-        <img
-          class="box-content h-200 w-200 aspect-square p-4 border-4 hover:bg-sky-500"
-          src="{{ picture.thumb.url }}"
-          alt="{{ picture.name }}"
-        >
+    <a href="{{ picture.img.url }}">
+      <img
+        class="box-content h-200 w-200 aspect-square p-4 border-4 hover:bg-sky-500"
+        src="{{ picture.thumb.url }}"
+        alt="{{ picture.name }}"
+      >
+    </a>
     {% endfor %}
   </div>
 {% endblock %}
