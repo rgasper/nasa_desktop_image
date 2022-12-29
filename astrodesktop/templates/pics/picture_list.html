@@ -1,19 +1,19 @@
 {% block picture-list %}
 <tbody>
   {% for picture in pictures %}
-  <tr class="hover:bg-sky-500">
-    <td class="border-4">
+  <tr>
+    <td>
       <a href="{{ picture.img.url }}">
         <img
-          class="box-content max-w-md aspect-square"
+
           src="{{ picture.thumb.url }}"
           alt="{{ picture.name }}"
         >
       </a>
     </td>
-    <td class="border-4 px-10 py-10">{{ picture.name }}</td>
-    <td class="border-4 px-10 py-10">{{ picture.img_width }}</td>
-    <td class="border-4 px-10 py-10">{{ picture.img_height }}</td>
+    <td>{{ picture.name }}</td>
+    <td>{{ picture.img_width }}</td>
+    <td>{{ picture.img_height }}</td>
   </tr>
   {% endfor %}
 </tbody>
