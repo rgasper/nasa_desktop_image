@@ -140,3 +140,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+
+with open("nasa_api_key.txt", "r") as f:
+    NASA_API_KEY = f.read()
