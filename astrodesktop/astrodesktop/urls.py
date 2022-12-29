@@ -17,13 +17,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from pics.views import PictureListView
+from django.views.generic import TemplateView
+
+
+class IndexView(TemplateView):
+    template_name = "base.html"
+
 
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path("admin/", admin.site.urls),
-    path("", PictureListView.as_view(), name="picture_list"),
     path("pics/", include("pics.urls")),
+    path("", IndexView.as_view(), name="index"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

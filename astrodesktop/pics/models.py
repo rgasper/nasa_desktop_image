@@ -7,9 +7,15 @@ from astrodesktop.models import TimeStampedModel
 
 
 class Picture(TimeStampedModel):
-    img = models.ImageField()
-    thumb = models.ImageField()  # not using django-thumbnails cus lets keep it KISS
+    img = models.ImageField(height_field="img_height", width_field="img_width")
+    thumb = models.ImageField(
+        height_field="thumb_height", width_field="thumb_width"
+    )  # not using django-thumbnails cus lets keep it KISS
     img_filename = models.TextField()  # corresponds to name property
+    thumb_width = models.IntegerField(blank=True, null=True)
+    thumb_height = models.IntegerField(blank=True, null=True)
+    img_width = models.IntegerField(blank=True, null=True)
+    img_height = models.IntegerField(blank=True, null=True)
 
     def save(self):
         def make_thumbnail(img, img_path) -> str:

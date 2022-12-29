@@ -1,48 +1,20 @@
-{% extends 'base.html' %}
 {% block picture-list %}
-<table class="table-auto">
-<thead class="border-b bg-gray-800">
-  <tr>
-    <th>Thumb</th>
-    <th>Name</th>
-    <th>Width</th>
-    <th>Height</th>
-  </tr>
-</thead>
 <tbody>
-    {% for picture in pictures %}
-    <tr class="hover:bg-sky-500">
-      <td class="border-4">
-        <a href="{{ picture.img.url }}">
-          <img
-            class="box-content max-w-md aspect-square"
-            src="{{ picture.thumb.url }}"
-            alt="{{ picture.name }}"
-          >
-        </a>
-      </td>
-      <td class="border-4 px-10 py-10">{{ picture.name }}</td>
-      <td class="border-4 px-10 py-10">{{ picture.img.width }}</td>
-      <td class="border-4 px-10 py-10">{{ picture.img.height }}</td>
-    </tr>
-    {% endfor %}
+  {% for picture in pictures %}
+  <tr class="hover:bg-sky-500">
+    <td class="border-4">
+      <a href="{{ picture.img.url }}">
+        <img
+          class="box-content max-w-md aspect-square"
+          src="{{ picture.thumb.url }}"
+          alt="{{ picture.name }}"
+        >
+      </a>
+    </td>
+    <td class="border-4 px-10 py-10">{{ picture.name }}</td>
+    <td class="border-4 px-10 py-10">{{ picture.img_width }}</td>
+    <td class="border-4 px-10 py-10">{{ picture.img_height }}</td>
+  </tr>
+  {% endfor %}
 </tbody>
-</table>
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
 {% endblock %}
