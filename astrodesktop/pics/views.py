@@ -1,10 +1,5 @@
-from random import choice
-
-from django.http import HttpResponse
-
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.views.generic import ListView
-from django.views.generic.base import View
 from pics.models import Picture
 
 
@@ -13,6 +8,21 @@ class PictureListView(ListView):
     context_object_name = "pictures"
 
 
-class PictureOfTheDayView(View):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse(choice(["Hi There", "Hello There", "Well Hello There"]))
+# class PictureOfTheDayView(TemplateView):
+
+#     template_name = "pics/pictureoftheday.html"
+
+#     def get_context_data(self, request, *args, **kwargs):
+#         context = super(PictureOfTheDayView, self).get_context_data(request, **kwargs)
+#         context["apod_url"] = "https://apod.nasa.gov/apod/image/2212/M88_2022weebly.jpg"
+#         return context
+
+
+def picture_of_the_day_view(request):
+    context = {}
+    context["apod_url"] = "https://apod.nasa.gov/apod/image/2212/M88_2022weebly.jpg"
+    return render(
+        request,
+        template_name="pics/pictureoftheday.html",
+        context=context,
+    )

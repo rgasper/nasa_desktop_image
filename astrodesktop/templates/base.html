@@ -17,7 +17,7 @@
 <body>
 	<div class="grid grid-cols-1 place-content-center font-serif text-xl font-extrabold text-center">Astro Pic of the Day</div>
 	<div hx-get="{% url 'pictureoftheday' %}" hx-trigger="load" hx-target="#picoftheday">
-		<div id="picoftheday">default</div>
+		<div id="picoftheday" class="grid grid-cols-1 place-content-center">default</div>
 	</div>
 	<div class="grid grid-cols-1 place-content-center font-serif text-xl font-extrabold text-center">Current Collection</div>
   <div class="grid grid-cols-1 place-content-center container w-2/3" id="content">
