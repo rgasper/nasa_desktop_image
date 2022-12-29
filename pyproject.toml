@@ -20,6 +20,7 @@ requests = "^2.28.1"
 Django = "^4.1.4"
 Pillow = "^9.3.0"
 django-tailwind = "^3.4.0"
+django-cache-memoize = "^0.1.10"
 
 [build-system]
 requires = ["poetry-core"]

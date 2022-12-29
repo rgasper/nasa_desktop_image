@@ -1,4 +1,5 @@
 import requests
+from cache_memoize import cache_memoize
 from django.conf import settings
 from django.shortcuts import render
 from django.views.generic import ListView
@@ -8,6 +9,7 @@ from pics.models import Picture
 class PictureListView(ListView):
     model = Picture
     context_object_name = "pictures"
+    paginate_by = 5
 
 
 def picture_of_the_day_view(request):
@@ -20,6 +22,7 @@ def picture_of_the_day_view(request):
     )
 
 
+@cache_memoize(60 * 60 * 4)
 def get_picture_of_the_day_url() -> str:
     url = "https://api.nasa.gov/planetary/apod"
     params = {
