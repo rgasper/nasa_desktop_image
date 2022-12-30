@@ -7,11 +7,10 @@ thead, tbody {
 tbody {
     height: 600px;
     overflow-y: auto;
-    width: 100%;
 }
 td, th {
-    width: 300px;
-    max-width: 300px;
+    width: 200px;
+    max-width: 200px;
 }
 td {
     word-wrap: break-word
