@@ -17,7 +17,7 @@
 {% endfor %}
 {% if next_page %}
   <tr hx-get="/pics?page={{ next_page }}"
-      hx-trigger="revealed"
+      hx-trigger="intersect once"
       hx-swap="afterend">
   </tr>
 {% endif %}
