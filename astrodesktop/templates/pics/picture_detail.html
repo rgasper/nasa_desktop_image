@@ -1,0 +1,26 @@
+<div class="container-lg bg-light">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col">
+        <h1>{{ picture.name }}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <img class="img-fluid"
+            src="{{ picture.img.url }}"
+            alt="{{ picture.name }}"
+          >
+        </div>
+        <h3 class="row">Width: {{ picture.img_width }}</h3>
+        <h3 class="row">Height: {{ picture.img_height }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" data-bs-dismiss="modal">Close</button>
+  </div>
+</div>

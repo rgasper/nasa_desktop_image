@@ -22,8 +22,8 @@ Pillow = "^9.3.0"
 django-cache-memoize = "^0.1.10"
 loguru = "^0.6.0"
 django-browser-reload = "^1.6.0"
-django-bootstrap4 = "^22.3"
 django-htmx = "^1.13.0"
+django-bootstrap5 = "^22.2"
 
 [build-system]
 requires = ["poetry-core"]

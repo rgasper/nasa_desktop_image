@@ -2,13 +2,16 @@
 {% for picture in pictures %}
   <tr>
     <td>
-      <a href="{{ picture.img.url }}">
+      <button
+        hx-get="{% url 'picture_detail' pk=picture.pk %}"
+        hx-target="#dialog"
+        hx-trigger="click"
+      >
         <img
-
           src="{{ picture.thumb.url }}"
           alt="{{ picture.name }}"
         >
-      </a>
+      </button>
     </td>
     <td>{{ picture.name }}</td>
     <td>{{ picture.img_width }}</td>

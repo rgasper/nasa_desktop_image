@@ -3,8 +3,13 @@ from cache_memoize import cache_memoize
 from django.conf import settings
 from django.core.paginator import InvalidPage
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import DetailView, ListView
 from pics.models import Picture
+
+
+class PictureDetailView(DetailView):
+    model = Picture
+    template_name = "pics/picture_detail.html"
 
 
 class PictureListView(ListView):
