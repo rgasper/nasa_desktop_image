@@ -4,7 +4,6 @@ from django.conf import settings
 from django.core.paginator import InvalidPage
 from django.shortcuts import render
 from django.views.generic import ListView
-from loguru import logger
 from pics.models import Picture
 
 
@@ -31,9 +30,7 @@ class PictureListView(ListView):
         context_data = super(PictureListView, self).get_context_data(**kwargs)
         page = context_data.get("page_obj")
         if page:
-            logger.debug(f"{page.number}")
             try:
-                logger.debug(f"{page.next_page_number()}")
                 context_data["next_page"] = page.next_page_number()
             except InvalidPage:
                 ...
