@@ -203,3 +203,5 @@ n
 
 astrodesktop/db.sqlite3
 astrodesktop/db.sqlite3
+
+.DS_store
