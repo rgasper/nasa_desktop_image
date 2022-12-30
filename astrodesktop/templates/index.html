@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div>Astro Pic of the Day</div>
+	<div hx-get="{% url 'pictureoftheday' %}" hx-trigger="load" hx-target="#picoftheday">
+		<div id="picoftheday">default</div>
+	</div>
+	<div>Current Collection</div>
+  <div>
+  </div>
+	<button
+	  type="button"
+		hx-get="/pics?order_by=recency"
+		hx-target="#picture-table-body"
+		hx-trigger="load,click"
+	>
+  	Sort Collection by Recency
+	</button>
+	<table>
+	<thead>
+	  <tr>
+	    <th>Thumb</th>
+	    <th>
+	      <button
+	        hx-get="/pics?order_by=name"
+	        hx-target="#picture-table-body"
+	        hx-trigger="click"
+	      >
+	      Name
+	      </button>
+	    </th>
+	    <th>
+	      <button
+	        hx-get="/pics?order_by=width"
+	        hx-target="#picture-table-body"
+	        hx-trigger="click"
+	      >
+	      Width
+	      </button>
+	    </th>
+	    <th>
+	      <button
+	        hx-get="/pics?order_by=height"
+	        hx-target="#picture-table-body"
+	        hx-trigger="click"
+	      >
+	      Height
+	      </button>
+	    </th>
+	  </tr>
+	</thead>
+	<tbody id="picture-table-body"></tbody>
+	</table>
+{% endblock %}

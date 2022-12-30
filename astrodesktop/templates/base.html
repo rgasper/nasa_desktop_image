@@ -1,8 +1,19 @@
 {% load static %}
+
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block title %}Astro Desktop Pictures{% endblock %}</title>
+    <title>Astro Desktops</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script
@@ -13,56 +24,11 @@
 		</script>
 </head>
 <body>
-	<div>Astro Pic of the Day</div>
-	<div hx-get="{% url 'pictureoftheday' %}" hx-trigger="load" hx-target="#picoftheday">
-		<div id="picoftheday">default</div>
-	</div>
-	<div>Current Collection</div>
-  <div>
-  </div>
-	<button
-	  type="button"
-		hx-get="/pics?order_by=recency"
-		hx-target="#picture-table-body"
-		hx-trigger="load,click"
-	>
-  	Sort Collection by Recency
-	</button>
-	<table>
-	<thead>
-	  <tr>
-	    <th>Thumb</th>
-	    <th>
-	      <button
-	        hx-get="/pics?order_by=name"
-	        hx-target="#picture-table-body"
-	        hx-trigger="click"
-	      >
-	      Name
-	      </button>
-	    </th>
-	    <th>
-	      <button
-	        hx-get="/pics?order_by=width"
-	        hx-target="#picture-table-body"
-	        hx-trigger="click"
-	      >
-	      Width
-	      </button>
-	    </th>
-	    <th>
-	      <button
-	        hx-get="/pics?order_by=height"
-	        hx-target="#picture-table-body"
-	        hx-trigger="click"
-	      >
-	      Height
-	      </button>
-	    </th>
-	  </tr>
-	</thead>
-	<tbody id="picture-table-body"></tbody>
-	</table>
+	<header>
+		<a href="/">Astro Desktops</a>
+	</header>
+	{% block content %}
+	{% endblock %}
 	<script>
 	    document.body.addEventListener('htmx:configRequest', (event) => {
 	    event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
