@@ -8,55 +8,61 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col">
-			<h1>Current Collection</h1>
+		<div class="container">
+  <div class="row">
+  	<div class="col">
+  		<h1>Current Collection</h1>
+  	</div>
+  	<div class="col">
+  		<button
+  		  type="button"
+  			hx-get="/pics?order_by=recency"
+  			hx-target="#picture-table-body"
+  			hx-trigger="click, load"
+  		>
+  	  	Sort Collection by Recency
+  		</button>
+  	</div>
+  </div>
+  <div class="row">
+  	<table class="table table-hover table-responsive-lg">
+    	<thead>
+    	  <tr>
+    	    <th scope="col">Thumb</th>
+    	    <th scope="col">
+    	      <button
+    	        hx-get="/pics?order_by=name"
+    	        hx-target="#picture-table-body"
+    	        hx-trigger="click"
+    	      >
+    	      Name
+    	      </button>
+    	    </th>
+    	    <th scope="col">
+    	      <button
+    	        hx-get="/pics?order_by=width"
+    	        hx-target="#picture-table-body"
+    	        hx-trigger="click"
+    	      >
+    	      Width
+    	      </button>
+    	    </th>
+    	    <th scope="col">
+    	      <button
+    	        hx-get="/pics?order_by=height"
+    	        hx-target="#picture-table-body"
+    	        hx-trigger="click"
+    	      >
+    	      Height
+    	      </button>
+    	    </th>
+    	  </tr>
+    	</thead>
+			{% block picture-list %}
+				<tbody id="picture-table-body">
+				{% include "pics/picture_list.html" %}
+			  </tbody>
+			{% endblock%}
 		</div>
-		<div class="col">
-			<button
-			  type="button"
-				hx-get="/pics?order_by=recency"
-				hx-target="#picture-table-body"
-				hx-trigger="load,click"
-			>
-		  	Sort Collection by Recency
-			</button>
-		</div>
-	</div>
-	<div class="row">
-		<table>
-		<thead>
-		  <tr>
-		    <th>Thumb</th>
-		    <th>
-		      <button
-		        hx-get="/pics?order_by=name"
-		        hx-target="#picture-table-body"
-		        hx-trigger="click"
-		      >
-		      Name
-		      </button>
-		    </th>
-		    <th>
-		      <button
-		        hx-get="/pics?order_by=width"
-		        hx-target="#picture-table-body"
-		        hx-trigger="click"
-		      >
-		      Width
-		      </button>
-		    </th>
-		    <th>
-		      <button
-		        hx-get="/pics?order_by=height"
-		        hx-target="#picture-table-body"
-		        hx-trigger="click"
-		      >
-		      Height
-		      </button>
-		    </th>
-		  </tr>
-		</thead>
-		<tbody id="picture-table-body"></tbody>
-		</table>
 	</div>
 {% endblock %}

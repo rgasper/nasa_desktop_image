@@ -1,6 +1,5 @@
 {% block picture-list %}
-<tbody>
-  {% for picture in pictures %}
+{% for picture in pictures %}
   <tr>
     <td>
       <a href="{{ picture.img.url }}">
@@ -15,6 +14,5 @@
     <td>{{ picture.img_width }}</td>
     <td>{{ picture.img_height }}</td>
   </tr>
-  {% endfor %}
-</tbody>
+{% endfor %}
 {% endblock %}
